@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FirstVox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Offset for fixed header */
+      #features, #use-cases, #footer {
+        scroll-margin-top: 5rem; /* h-20 = 5rem = 80px */
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              'brand-primary': '#4f46e5',
+              'brand-secondary': '#10b981',
+              'accent-cyan': '#22d3ee',
+              'accent-green': '#a3e635',
+              'status-available': 'rgba(22, 163, 74, 0.2)', // green-600 with opacity
+              'status-available-text': '#16a34a',
+              'status-preferred': 'rgba(234, 179, 8, 0.2)', // yellow-500 with opacity
+              'status-preferred-text': '#ca8a04',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 1s ease-out forwards',
+              'spin-slow': 'spin 30s linear infinite',
+              'slide-in': 'slideIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'slide-out': 'slideOut 0.3s cubic-bezier(0.5, 0, 0.75, 0) forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideIn: {
+                'from': { opacity: '0', transform: 'translateY(2rem)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideOut: {
+                'from': { opacity: '1', transform: 'translateY(0)' },
+                'to': { opacity: '0', transform: 'translateY(2rem)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Add Babel to transpile JSX in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "jwt-decode": "https://esm.sh/jwt-decode@4.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-black">
+    <div id="root"></div>
+    <!-- Changed type to "text/babel" and added data-type="module" to enable JSX and ES Modules -->
+    <script type="text/babel" data-type="module" src="/index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
